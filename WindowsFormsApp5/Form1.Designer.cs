@@ -28,15 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Close = new System.Windows.Forms.Button();
             this.Random = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Delete = new System.Windows.Forms.Button();
-            this.vvod = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.perehod = new System.Windows.Forms.Button();
-            this.zadanie = new System.Windows.Forms.Button();
-            this.grafic = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,7 +69,17 @@
             this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.Button();
+            this.vvod = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.perehod = new System.Windows.Forms.Button();
+            this.zadanie = new System.Windows.Forms.Button();
+            this.grafic = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label1 = new System.Windows.Forms.Label();
+            this.sort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // Close
@@ -139,64 +146,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(541, 150);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Delete
-            // 
-            this.Delete.Location = new System.Drawing.Point(120, 189);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(100, 38);
-            this.Delete.TabIndex = 3;
-            this.Delete.Text = "Очистить";
-            this.Delete.UseVisualStyleBackColor = true;
-            this.Delete.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // vvod
-            // 
-            this.vvod.Location = new System.Drawing.Point(12, 233);
-            this.vvod.Name = "vvod";
-            this.vvod.Size = new System.Drawing.Size(102, 36);
-            this.vvod.TabIndex = 4;
-            this.vvod.Text = "Ввод из файла";
-            this.vvod.UseVisualStyleBackColor = true;
-            this.vvod.Click += new System.EventHandler(this.vvod_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(151, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
-            this.label2.TabIndex = 5;
-            // 
-            // perehod
-            // 
-            this.perehod.Location = new System.Drawing.Point(451, 189);
-            this.perehod.Name = "perehod";
-            this.perehod.Size = new System.Drawing.Size(100, 36);
-            this.perehod.TabIndex = 6;
-            this.perehod.Text = "Главное меню";
-            this.perehod.UseVisualStyleBackColor = true;
-            this.perehod.Click += new System.EventHandler(this.perehod_Click);
-            // 
-            // zadanie
-            // 
-            this.zadanie.Location = new System.Drawing.Point(120, 236);
-            this.zadanie.Name = "zadanie";
-            this.zadanie.Size = new System.Drawing.Size(100, 33);
-            this.zadanie.TabIndex = 7;
-            this.zadanie.Text = "Вычисление массива";
-            this.zadanie.UseVisualStyleBackColor = true;
-            this.zadanie.Click += new System.EventHandler(this.zadanie_Click);
-            // 
-            // grafic
-            // 
-            this.grafic.Location = new System.Drawing.Point(236, 189);
-            this.grafic.Name = "grafic";
-            this.grafic.Size = new System.Drawing.Size(89, 38);
-            this.grafic.TabIndex = 8;
-            this.grafic.Text = "График";
-            this.grafic.UseVisualStyleBackColor = true;
-            this.grafic.Click += new System.EventHandler(this.grafic_Click);
             // 
             // Column1
             // 
@@ -373,11 +322,108 @@
             this.Column35.HeaderText = "35";
             this.Column35.Name = "Column35";
             // 
+            // Delete
+            // 
+            this.Delete.Location = new System.Drawing.Point(120, 189);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(100, 38);
+            this.Delete.TabIndex = 3;
+            this.Delete.Text = "Очистить";
+            this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // vvod
+            // 
+            this.vvod.Location = new System.Drawing.Point(12, 233);
+            this.vvod.Name = "vvod";
+            this.vvod.Size = new System.Drawing.Size(102, 36);
+            this.vvod.TabIndex = 4;
+            this.vvod.Text = "Ввод из файла";
+            this.vvod.UseVisualStyleBackColor = true;
+            this.vvod.Click += new System.EventHandler(this.vvod_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(151, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 5;
+            // 
+            // perehod
+            // 
+            this.perehod.Location = new System.Drawing.Point(451, 189);
+            this.perehod.Name = "perehod";
+            this.perehod.Size = new System.Drawing.Size(100, 36);
+            this.perehod.TabIndex = 6;
+            this.perehod.Text = "Узнать больше";
+            this.perehod.UseVisualStyleBackColor = true;
+            this.perehod.Click += new System.EventHandler(this.perehod_Click);
+            // 
+            // zadanie
+            // 
+            this.zadanie.Location = new System.Drawing.Point(120, 236);
+            this.zadanie.Name = "zadanie";
+            this.zadanie.Size = new System.Drawing.Size(100, 33);
+            this.zadanie.TabIndex = 7;
+            this.zadanie.Text = "Вычисление массива";
+            this.zadanie.UseVisualStyleBackColor = true;
+            this.zadanie.Click += new System.EventHandler(this.zadanie_Click);
+            // 
+            // grafic
+            // 
+            this.grafic.Location = new System.Drawing.Point(236, 189);
+            this.grafic.Name = "grafic";
+            this.grafic.Size = new System.Drawing.Size(89, 38);
+            this.grafic.TabIndex = 8;
+            this.grafic.Text = "График";
+            this.grafic.UseVisualStyleBackColor = true;
+            this.grafic.Click += new System.EventHandler(this.grafic_Click);
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(595, 12);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(282, 269);
+            this.chart1.TabIndex = 9;
+            this.chart1.Text = "chart1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(34, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 25);
+            this.label1.TabIndex = 10;
+            // 
+            // sort
+            // 
+            this.sort.Location = new System.Drawing.Point(236, 233);
+            this.sort.Name = "sort";
+            this.sort.Size = new System.Drawing.Size(89, 36);
+            this.sort.TabIndex = 11;
+            this.sort.Text = "Сортировка";
+            this.sort.UseVisualStyleBackColor = true;
+            this.sort.Click += new System.EventHandler(this.button1_Click_2);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 286);
+            this.ClientSize = new System.Drawing.Size(889, 286);
+            this.Controls.Add(this.sort);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.grafic);
             this.Controls.Add(this.zadanie);
             this.Controls.Add(this.perehod);
@@ -391,6 +437,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -442,6 +489,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column33;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column34;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column35;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button sort;
     }
 }
 
